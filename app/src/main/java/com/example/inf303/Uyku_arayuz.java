@@ -57,7 +57,7 @@ public class Uyku_arayuz extends AppCompatActivity implements TimePickerDialog.O
 
 
     @Override
-    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {        // Setting Texts 
 
         TextView saat = (TextView) findViewById(R.id.saat);
         TextView dakika = (TextView) findViewById(R.id.dakika);
@@ -66,14 +66,14 @@ public class Uyku_arayuz extends AppCompatActivity implements TimePickerDialog.O
         System.out.println(hourOfDay);
         System.out.println(minute);
 
-//        Toast.makeText(this, R.string.toast, Toast.LENGTH_SHORT).show();
+
         Toast.makeText(this, R.string.Toast_uyku_1, Toast.LENGTH_LONG).show();
 
         addData(hourOfDay, minute);
     }
 
 
-    public void getDataCalistir() {
+    public void getDataCalistir() {                     //  for see the values we added to TextViews when we open back the application again
         TextView saat = (TextView) findViewById(R.id.saat);
         TextView dakika = (TextView) findViewById(R.id.dakika);
 
@@ -82,16 +82,15 @@ public class Uyku_arayuz extends AppCompatActivity implements TimePickerDialog.O
     }
 
 
-    public void addData(int hourOfDay, int minute) {
+    public void addData(int hourOfDay, int minute) {       // adding hourOfDay and minute to database   
 
         boolean insert;
         if (mDatabase.addData(hourOfDay, minute)) {
             insert = true;
-//            Toast.makeText(this, R.string.toast2, Toast.LENGTH_LONG).show();
-//            toastMessage("Veritabanina eklendi.");
+
         } else {
             insert = false;
-//            toastMessage("Eklenemedi");
+
         }
     }
 
